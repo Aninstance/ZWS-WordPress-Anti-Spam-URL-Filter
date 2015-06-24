@@ -4,7 +4,7 @@ Contributors: zaziork
 Tags: comments, spam, hyperlink blocker, hyperlinks, filter, comments filter, url filter, anti-spam
 Requires at least: 3.0 
 Tested up to: 4.2.2
-Stable tag: 2.1
+Stable tag: 2.2
 License: GPLv2 or later
 
 Reduces spam comments submissions by filtering URLs and/or blacklist terms. Initially configured to prohibit clickable URLs.
@@ -49,9 +49,12 @@ There are no frequently asked questions as yet.
 
 == Current version ==
 
-The current version is: 2.1
+The current version is: 2.2
 
 == Changelog ==
+
+= 2.2 =
+Enclosed remaining exposed functions within classes to avoid possible name clashes with other plugins.
 
 = 2.1 =
 Fixed a bug in db.php that resulted in a PHP log warning.
