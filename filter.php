@@ -9,7 +9,7 @@
  * @link https://www.zaziork.com/zws-wordpress-anti-spam-filter-plugin/
  */
 
-Class CommentsFilter {
+Class ZwsCommentsFilter {
 
     private static function is_site_admin() {
         $currentUser = wp_get_current_user();
@@ -21,7 +21,7 @@ Class CommentsFilter {
         // do the database calls
         $reject_text = get_site_option('zws_filter_reject_text');
         require_once(__DIR__ . '/db.php');
-        $blacklist = DatabaseAdmin::get_blacklist();
+        $blacklist = ZwsDatabaseAdmin::get_blacklist();
         
         // get blacklist
         if (!empty($blacklist)) {
@@ -51,10 +51,10 @@ Class CommentsFilter {
     public static function run_filter() {
         // call the blocker method every time a comment submitted (preprocess) if submitter not admin
         if (!self::is_site_admin()) {
-            add_action('preprocess_comment', array('CommentsFilter', 'comment_link_blocker'));
+            add_action('preprocess_comment', array('ZwsCommentsFilter', 'comment_link_blocker'));
         }
         // remove website field from form
-        add_filter('comment_form_default_fields', array('CommentsFilter', 'remove_website_field'));
+        add_filter('comment_form_default_fields', array('ZwsCommentsFilter', 'remove_website_field'));
     }
 
 }

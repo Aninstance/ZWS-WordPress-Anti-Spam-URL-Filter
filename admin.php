@@ -8,7 +8,7 @@
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @link https://www.zaziork.com/zws-wordpress-anti-spam-filter-plugin/
  */
-Class AdminPage {
+Class ZwsAdminPage {
 
     public static function my_setup_menu() {
         add_menu_page('ZWS Wordpress Anti-Spam & URL Filter', 'ZWS Anti-Spam', 'manage_options', 'zws-anti-spam-url-filter', array('AdminPage', 'zws_antispam_settings_page'));
@@ -80,7 +80,7 @@ Class AdminPage {
 
     function display_blacklist_string() {
         require_once(__DIR__ . '/db.php');
-        $blacklist = DatabaseAdmin::get_blacklist();
+        $blacklist = ZwsDatabaseAdmin::get_blacklist();
         $blacklist_string = '';
         if (!empty($blacklist)) {
             foreach ($blacklist as $phrase) {
@@ -93,13 +93,8 @@ Class AdminPage {
         }
         return $blacklist_string;
     }
-
-}
-
-if (isset($_POST['updated_blacklist'])) {
-    update_db();
-}
-
+    
+    
 function update_db() {
     $blacklist_string = sanitize_text_field($_POST['updated_blacklist']);
     // remove trailing whitespace
@@ -110,5 +105,11 @@ function update_db() {
     $blacklist = explode(', ', $blacklist_string);
     // add to database
     require_once(__DIR__ . '/db.php');
-    DatabaseAdmin::set_blacklist($blacklist);
+    ZwsDatabaseAdmin::set_blacklist($blacklist);
+}
+
+}
+
+if (isset($_POST['updated_blacklist'])) {
+    ZwsAdminPage::update_db();
 }

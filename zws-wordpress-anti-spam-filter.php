@@ -30,36 +30,40 @@
  * GNU General Public License for more details.
  * **********************************************************************
  */
-function run_installer() {
-    require_once(__DIR__ . '/installer.php');
-    // run installer
-    Installer::zws_filter_install();
-}
+Class ZwsFilter {
 
-function run_admin() {
-    require_once(__DIR__ . '/admin.php');
-    // run the menu page code
-    AdminPage::my_setup_menu();
-}
+    private static function run_installer() {
+        require_once(__DIR__ . '/installer.php');
+// run installer
+        ZwsInstaller::zws_filter_install();
+    }
 
-function run_filter() {
-    require_once(__DIR__ . '/filter.php');
-    // run the filter
-    CommentsFilter::run_filter();
-}
+    private static function run_admin() {
+        require_once(__DIR__ . '/admin.php');
+// run the menu page code
+        ZwsAdminPage::my_setup_menu();
+    }
 
-function add_action_links ( $links ) {
- $mylinks = array(
- '<a href="' . admin_url( 'admin.php?page=zws-anti-spam-url-filter' ) . '">Settings</a>',
- );
-return array_merge( $mylinks, $links );
+    private static function run_filter() {
+        require_once(__DIR__ . '/filter.php');
+// run the filter
+        ZwsCommentsFilter::run_filter();
+    }
+
+    private static function add_action_links($links) {
+        $mylinks = array(
+            '<a href="' . admin_url('admin.php?page=zws-anti-spam-url-filter') . '">Settings</a>',
+        );
+        return array_merge($mylinks, $links);
+    }
+
 }
 
 // add additional links on plugins page
-add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'add_action_links' );
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), array('ZwsFilter', 'add_action_links'));
 // create the administration page
-add_action('admin_menu', 'run_admin');
+add_action('admin_menu', array('ZwsFilter', 'run_admin'));
 // add the installer to the activation hook
-register_activation_hook(__FILE__, 'run_installer');
+register_activation_hook(__FILE__, array('ZwsFilter', 'run_installer'));
 // run the filter (once plugins have loaded)
-add_action('plugins_loaded', 'run_filter');
+add_action('plugins_loaded', array('ZwsFilter', 'run_filter'));

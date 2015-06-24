@@ -8,7 +8,7 @@
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @link https://www.zaziork.com/zws-wordpress-anti-spam-filter-plugin/
  */
-Class Installer {
+Class ZwsInstaller {
 
     // defaults
     private static $table_name_no_prefix = 'zws_antispam';
@@ -38,12 +38,12 @@ Class Installer {
 
 // initiate db
         require_once(__DIR__ . '/db.php');
-        DatabaseAdmin::update_database();
+        ZwsDatabaseAdmin::update_database();
 
 // set the initial blacklist if emtpy
-        $resultset = DatabaseAdmin::get_blacklist();
+        $resultset = ZwsDatabaseAdmin::get_blacklist();
         if (empty($resultset)) {
-            DatabaseAdmin::set_blacklist(self::get_default_blacklist());
+            ZwsDatabaseAdmin::set_blacklist(self::get_default_blacklist());
         }
     }
 

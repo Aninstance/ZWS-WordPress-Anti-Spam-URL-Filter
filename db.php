@@ -8,7 +8,7 @@
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @link https://www.zaziork.com/zws-wordpress-anti-spam-filter-plugin/
  */
-Class DatabaseAdmin {
+Class ZwsDatabaseAdmin {
 
     // increment this when database structure changed or name changed
     public static $zws_filter_db_version = "1.0";
