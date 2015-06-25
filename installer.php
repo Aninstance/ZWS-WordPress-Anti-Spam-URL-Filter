@@ -38,7 +38,7 @@ Class ZwsInstaller {
 
 // initiate db
         require_once(__DIR__ . '/db.php');
-        ZwsDatabaseAdmin::update_database();
+        ZwsDatabaseAdmin::create_database();
 
 // set the initial blacklist if emtpy
         $resultset = ZwsDatabaseAdmin::get_blacklist();

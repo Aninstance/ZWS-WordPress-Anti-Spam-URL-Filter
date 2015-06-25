@@ -13,15 +13,20 @@ Class ZwsDatabaseAdmin {
     // increment this when database structure changed or name changed
     public static $zws_filter_db_version = "1.0";
 
-    public static function update_database() {
-        // updated database 
+    public static function create_database() {
+        // check version
+        if (!get_site_option('zws_filter_db_version')) {
+            add_site_option('zws_filter_db_version', self::$zws_filter_db_version);
+        }
+        // create the database if  necessary
         global $wpdb;
-        self::$zws_filter_db_version;
         $stored_table_name = get_site_option('zws_filter_table_name');
         $installed_ver = get_site_option("zws_filter_db_version");
-        if ($installed_ver != self::$zws_filter_db_version) {
+        // if stored db version value matches hardcoded version above
+        if ($installed_ver === self::$zws_filter_db_version) {
+            // create the table if does not already exist
             $table_name = $wpdb->prefix . $stored_table_name;
-            $sql = "CREATE TABLE $table_name (
+            $sql = "CREATE TABLE IF NOT EXISTS $table_name (
         id mediumint(9) NOT NULL AUTO_INCREMENT,
         time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
         banned varchar(255) DEFAULT '' NOT NULL,
@@ -29,12 +34,11 @@ Class ZwsDatabaseAdmin {
 	);";
             require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
             dbDelta($sql);
-            // set the option if does not exist
-            if (!get_site_option('zws_filter_db_version')) {
-                add_site_option('zws_filter_db_version', self::$zws_filter_db_version);
-            } else {
-                update_site_option("zws_filter_db_version", self::$zws_filter_db_version);
-            }
+        } else {
+            // if a new database version, call some db upgrade method (not yet written).
+            /* self::upgrade_db(); */
+            // update the stored db version option
+            update_site_option("zws_filter_db_version", self::$zws_filter_db_version);
         }
     }
 
