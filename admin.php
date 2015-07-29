@@ -36,7 +36,7 @@ Class ZwsAdminPage {
                 ?>          
             </form>
         </div>
-        <p>Thank you for using ZWS WordPress Anti-Spam & URL Filter. <a href="/donate/">Donations are much appreciated!</a></p>
+        <p>Thank you for using ZWS WordPress Anti-Spam & URL Filter. <a href="https://www.zaziork.com/donate/">Donations are much appreciated!</a></p>
         <?php
     }
 
