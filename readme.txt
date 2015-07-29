@@ -3,8 +3,8 @@ Donate link: https://www.zaziork.com/donate
 Contributors: zaziork
 Tags: comments, spam, hyperlink blocker, hyperlinks, filter, comments filter, url filter, anti-spam
 Requires at least: 3.0 
-Tested up to: 4.2.2
-Stable tag: 2.3
+Tested up to: 4.2.3
+Stable tag: 2.4
 License: GPLv2 or later
 
 Reduces spam comments submissions by filtering URLs and/or blacklist terms. Initially configured to prohibit clickable URLs.
@@ -49,9 +49,12 @@ There are no frequently asked questions as yet.
 
 == Current version ==
 
-The current version is: 2.3
+The current version is: 2.4
 
 == Changelog ==
+
+= 2.4 =
+Updated versioning info and donations URL.
 
 = 2.3 =
 Fixed bug where database was not being created on upgrade from 1.x versions.

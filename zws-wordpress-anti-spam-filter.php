@@ -4,7 +4,7 @@
  * Plugin Name: ZWS Wordpress Anti Spam & URL Filter
  * Plugin URI: https://www.zaziork.com/zws-wordpress-anti-spam-filter-plugin/
  * Description: Prevent spam in comments by filtering out URLs & blacklist.
- * Version: 2.3
+ * Version: 2.4
  * Author: Zaziork Web Solutions
  * Author URI: http://www.zaziork.com
  * Copyright (c) 2015 Zaziork Web Solutions. All rights reserved.
