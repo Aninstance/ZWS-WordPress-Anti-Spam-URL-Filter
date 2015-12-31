@@ -3,7 +3,7 @@ Donate link: https://www.zaziork.com/donate
 Contributors: zaziork
 Tags: comments, spam, hyperlink blocker, hyperlinks, filter, comments filter, url filter, anti-spam
 Requires at least: 3.0 
-Tested up to: 4.2.3
+Tested up to: 4.4
 Stable tag: 2.4
 License: GPLv2 or later
 
