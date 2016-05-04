@@ -28,6 +28,10 @@ The blacklist may be edited from the Settings page, as can the rejection message
 
 Users with the role of "administrator" are exempt from the blacklist filter.
 
+Please note: Use of this plugin may also invoke the filtering on web form plugins which rely on the Wordpress commenting system code.
+
+For example, the filtering is applied to messages sent from the "Clean & Simple Contact Form" plugin.
+
 == Plugin Website ==
 
 The URL of this plugin's website is: https://www.zaziork.com/zws-wordpress-anti-spam-filter-plugin/
