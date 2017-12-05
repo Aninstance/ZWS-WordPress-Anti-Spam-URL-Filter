@@ -1,3 +1,6 @@
+THIS PLUGIN IS NOW "END OF LIFE". IT IS HERE FOR ARCHIVE PURPOSES ONLY.
+THEREFORE, USE OF THIS PLUGIN IS HIGHLY DISCOURAGED.
+
 === ZWS Wordpress Anti Spam & URL Filter === 
 Donate link: https://www.zaziork.com/donate
 Contributors: zaziork
