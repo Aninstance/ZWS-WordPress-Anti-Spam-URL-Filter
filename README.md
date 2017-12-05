@@ -1,4 +1,4 @@
-# ZWS-WordPress-Anti-Spam-URL-Filter
+## ZWS-WordPress-Anti-Spam-URL-Filter
 ZWS WordPress Anti Spam &amp; URL Filter
 
-As per readme.txt ...
+# THIS PLUGIN IS "END OF LIFE" AND IS HERE FOR ARCHIVE PURPOSES ONLY. USING THIS PLUGIN IS HIGHLY DISCOURAGED.
